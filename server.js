@@ -14,7 +14,10 @@ const io = new Server(server, {
 
 // Serve static frontend assets from the public directory
 app.use(express.static(path.join(__dirname, 'public')));
-
+// Root pe index.html bhej do
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 // Store active lobby rooms and player data
 const rooms = {};
 
